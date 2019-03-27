@@ -93,7 +93,15 @@ if __name__ == '__main__':
 
 
 
-    if args.task == "train":
-        print("training")
+    if args.task == "train_eval":
+        logging.info("Begin_training")
         model_obj.do_init(args.model_arg)
-        model_obj.do_train()
+        model_obj.do_train_and_eval()
+    elif args.task == "eval":
+        logging.info("Model Evaluation")
+        model_obj.do_init(args.model_arg)
+        model_obj.do_eval()
+    elif args.task == "pred":
+        logging.info("Model Prediction")
+        model_obj.do_init(args.model_arg)
+        model_obj.do_pred()
